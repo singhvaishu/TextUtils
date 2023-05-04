@@ -10,7 +10,6 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-
 } from "react-router-dom";
 
 //import TextForm from './components/TextForm';
@@ -45,13 +44,14 @@ function App() {
       { }
       { }
 
-      <Router>
+      <Router basename="/TextUtils">
         <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode} />
         <Alert alert={alert} />
         <div className="container my-3">
+
           <Routes>
-            <Route exact path="/about" element={<About />} />
-            <Route excat path="/" element={<TextForm heading="Enter the text to analyze below" mode={mode} onShowAlert={showAlert} />} />
+            <Route exact path="/about" element={<About mode={mode} />} />
+            <Route excat path="/" element={<TextForm showAlert={showAlert} heading="Enter the text to analyze below" mode={mode} onShowAlert={showAlert} />} />
           </Routes>
         </div>
       </Router>
